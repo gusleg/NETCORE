@@ -1,0 +1,147 @@
+@model IEnumerable<OspiaCore.Models.Medicos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DNI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Domicilio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DNI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Domicilio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @*<a asp-action="Edit"  class="btn btn-primary" asp-route-id="@item.NumeroMatricula">Edit</a> |
+                <a asp-action="Details"  class="btn btn-success" asp-route-id="@item.NumeroMatricula">Details</a> |
+                <a asp-action="Delete"  class="btn btn-warning" asp-route-id="@item.NumeroMatricula">Delete</a>*@
+
+                @*este es el modal, el de arriba es el normal*@
+                <a data-toggle="modal" data-target="#myModal" class="btn btn-primary" >Edit</a> |
+                <a asp-action="Details" class="btn btn-success" asp-route-id="@item.NumeroMatricula">Details</a> |
+                <a asp-action="Delete" class="btn btn-warning" asp-route-id="@item.NumeroMatricula">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                @*aqui copio*@
+                
+                @*<form asp-action="Edit">
+                    <div class="form-horizontal">
+                        <h4>Medicos</h4>
+                        <hr />
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="NumeroMatricula" />
+                        <div class="form-group">
+                            <label asp-for="Apellido" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <input asp-for="Apellido" class="form-control" />
+                                <span asp-validation-for="Apellido" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Celular" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <input asp-for="Celular" class="form-control" />
+                                <span asp-validation-for="Celular" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DNI" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <input asp-for="DNI" class="form-control" />
+                                <span asp-validation-for="DNI" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Domicilio" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <input asp-for="Domicilio" class="form-control" />
+                                <span asp-validation-for="Domicilio" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Especialidad" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <input asp-for="Especialidad" class="form-control" />
+                                <span asp-validation-for="Especialidad" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Nombre" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <input asp-for="Nombre" class="form-control" />
+                                <span asp-validation-for="Nombre" class="text-danger" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                </form>*@
+
+    @*termino de copiar el index*@
+    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
